@@ -1,1 +1,1 @@
-# Erathor-Admin.Plugin
+# Erathor API - How to use
