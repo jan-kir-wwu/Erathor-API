@@ -12,14 +12,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/jan-kir-wwu/Erathor-API</url>
-        </repository>
-    </distributionManagement>
-
     <!-- Repositories -->
     <repositories>
         <!-- JDA Repo -->
