@@ -1,0 +1,15 @@
+name: ErahthorAdmin
+version: 1.0-SNAPSHOT
+api-version: 1.19
+main: org.erathor.admin.Main
+depend: []
+commands:
+  erathor:
+    description: Execute basic command
+    usage: /admin
+    permission: admin.command
+    permission-message: You don't have the permission
+permissions:
+  erathor.command:
+    description: Allows command
+    default: true

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ErathorAdmin</artifactId>
+    <groupId>org.erathor.admin</groupId>
+    <version>1.0</version>
+	
+	<properties>
+        <java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+    <!--Repositories-->
+	<repositories>
+		 
+    	<!--JDA Repo -->
+		<repository>
+	      <id>jcenter</id>
+	      <name>jcenter-bintray</name>
+	      <url>https://jcenter.bintray.com</url>
+		</repository>
+   
+	   <repository>
+		<id>spigot-repo</id>
+		<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+	   </repository>
+	  
+	  <repository>
+	    <id>papermc</id>
+	    <url>https://papermc.io/repo/repository/maven-public/</url>
+	  </repository>
+	     
+	  <repository>
+		<id>enginehub-maven</id>
+		<url>https://maven.enginehub.org/repo/</url>
+	  </repository>
+
+	</repositories>
+
+	<!-- Dependencies -->
+	<dependencies>
+
+        <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter</artifactId>
+          <version>5.8.2</version>
+          <scope>test</scope>
+        </dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-core</artifactId>
+            <version>6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-jdbc</artifactId>
+            <version>6.1</version>
+        </dependency>
+
+		<dependency>
+		    <groupId>io.papermc.paper</groupId>
+		    <artifactId>paper-api</artifactId>
+		    <version>1.19.4-R0.1-SNAPSHOT</version>
+		    <scope>provided</scope>
+		</dependency>
+		  
+		 <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.12.0</version>
+		</dependency>
+     
+    </dependencies>
+
+ 	<build> 
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+      <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+               <configuration>
+      		  </configuration>
+                <executions>
+                    <execution>
+                    	<id>Packaging</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${dir}</outputDirectory>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+							<artifactSet>
+								<excludes>
+								<exclude>org.junit:*</exclude>
+								<exclude>io.papermc:*</exclude>
+								<exclude>net.minecraft:*</exclude>
+								<exclude>org.spigotmc:*</exclude>
+								<exclude>net.md-5:*</exclude>
+								<exclude>org.projectlombok:*</exclude>
+								<exclude>org.apache:*</exclude>
+								</excludes>
+							</artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			
+      </plugins>
+   </build>
+   
+</project>
