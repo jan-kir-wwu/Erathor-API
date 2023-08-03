@@ -1,0 +1,5 @@
+name: ErathorAPI
+version: 1.0-SNAPSHOT
+api-version: 1.19
+main: org.erathor.api.ErathorAPI
+depend: [ErathorCore]

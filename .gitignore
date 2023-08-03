@@ -1,0 +1,27 @@
+.idea
+# Log file
+*.log
+
+# Classpath
+.classpath
+
+# Project
+.project
+
+bin/
+target/
+repo/
+data/
+
+.idea
+.settings
+*.jar
+*.class
+*.lst
+*.properties
+*.ls
+
+# a file created by Intellij IDEA that should not be commited to the project
+ErathorCore.iml
+
+mcDatabase.db
