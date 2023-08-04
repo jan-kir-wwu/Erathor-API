@@ -5,13 +5,14 @@ on:
     branches:
       - '*'
 
+permissions:
+  contents: write
+  packages: write
+  releases: write
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-      releases: write
     steps:
     - name: Check out repository
       uses: actions/checkout@v2  # Note: Use v2 here
