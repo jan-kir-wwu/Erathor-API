@@ -10,13 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2  # Note: Use v2 here
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2  # Note: Updated to v2 for easier setup
       with:
         java-version: '17'
         distribution: 'temurin'
+
+    - name: Get latest release number
+      id: latestrelease
+      run: echo "RELEASE_VERSION=$(curl -s https://api.github.com/repos/$GITHUB_REPOSITORY/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/[^0-9]*//g')" >> $GITHUB_ENV
+
+    - name: Calculate new release number
+      run: echo "NEW_RELEASE_VERSION=$((${RELEASE_VERSION} + 1))" >> $GITHUB_ENV
+
+    - name: Update pom.xml with new version
+      run: mvn versions:set -DnewVersion=$NEW_RELEASE_VERSION
 
     - name: Clean with Maven
       run: mvn clean
@@ -29,3 +39,14 @@ jobs:
 
     - name: Package with Maven
       run: mvn package
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: v$NEW_RELEASE_VERSION
+        release_name: Release v$NEW_RELEASE_VERSION
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

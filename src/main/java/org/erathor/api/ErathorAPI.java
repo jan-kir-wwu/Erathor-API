@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.ChatColor;
 
-public class ErathorAPI extends JavaPlugin implements Erathor {
+public class ErathorAPI extends JavaPlugin {
 
     private static Erathor erathorCore;
 
