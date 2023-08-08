@@ -58,12 +58,12 @@ jobs:
           fi
         done
 
-    - name: Create GitHub Release with version 1
+    - name: Create GitHub Release with new version
       id: create_release
       uses: actions/create-release@v1
       with:
-        tag_name: v1
-        release_name: Release v1
+        tag_name: v${{ env.NEW_RELEASE_VERSION }}
+        release_name: Release v${{ env.NEW_RELEASE_VERSION }}
         draft: false
         prerelease: false
       env:
