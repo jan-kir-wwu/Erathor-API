@@ -44,20 +44,6 @@ jobs:
     - name: Package with Maven
       run: mvn package
 
-    - name: Delete all releases and associated tags
-      run: |
-        releases=$(curl -sH "Authorization: token ${{ secrets.RELEASE }}" https://api.github.com/repos/$GITHUB_REPOSITORY/releases | jq -r '.[] | .id, .tag_name')
-        for release in $releases
-        do
-          # If it's an ID, delete the release
-          if [[ $release =~ ^[0-9]+$ ]]; then
-            curl -X DELETE -sH "Authorization: token ${{ secrets.RELEASE }}" https://api.github.com/repos/$GITHUB_REPOSITORY/releases/$release
-          else
-            # Otherwise, delete the git tag
-            git push --delete origin $release
-          fi
-        done
-
     - name: Create GitHub Release with new version
       id: create_release
       uses: actions/create-release@v1
