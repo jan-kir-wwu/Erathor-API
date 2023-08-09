@@ -1,4 +1,4 @@
-package org.erathor.api;
+package org.erathor.api.controller;
 
 public interface ErathorControllersAPI {
 
