@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.erathor.api.model.ModelAPI;
 
-public interface ModelControllerAPI<M extends ModelAPI> {
+public interface ModelControllerAPI<M extends ModelAPI<M>> {
 
     public Optional<M> read(Integer id);
 

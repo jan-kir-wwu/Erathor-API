@@ -1,5 +1,5 @@
 package org.erathor.api.model;
 
-public interface ExecutionAPI extends ModelAPI {
+public interface ExecutionAPI extends ModelAPI<ExecutionAPI> {
 
 }
