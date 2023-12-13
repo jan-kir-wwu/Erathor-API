@@ -10,6 +10,8 @@ public class ErathorAPIMain extends JavaPlugin {
 
     private static ErathorAPI erathorCore;
 
+    // Test new relaeae
+
     @Override
     public void onEnable() {
         Plugin npl = Bukkit.getPluginManager().getPlugin("ErathorCore");
