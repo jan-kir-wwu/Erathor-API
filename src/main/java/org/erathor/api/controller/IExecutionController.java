@@ -8,6 +8,12 @@ import java.util.Optional;
 
 public interface IExecutionController {
 
+    public IExecution get(Integer id);
+
+    public void add(IExecution model);
+
+    public void remove(IExecution model);
+
     public Optional<IExecution> read(Integer id);
 
     public void create(IExecution model);
