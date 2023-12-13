@@ -2,6 +2,6 @@ package org.erathor.api.controller;
 
 import org.erathor.api.model.ExecutionAPI;
 
-public interface ExecutionControllerAPI extends ModelControllerAPI<ExecutionAPI, Integer> {
+public interface ExecutionControllerAPI extends ModelControllerAPI<ExecutionAPI> {
 
 }

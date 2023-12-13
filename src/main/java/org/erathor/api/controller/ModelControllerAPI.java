@@ -3,9 +3,11 @@ package org.erathor.api.controller;
 import java.util.List;
 import java.util.Optional;
 
-public interface ModelControllerAPI<M, ID> {
+import org.erathor.api.model.ModelAPI;
 
-    public Optional<M> read(ID id);
+public interface ModelControllerAPI<M extends ModelAPI> {
+
+    public Optional<M> read(Integer id);
 
     public M create(M model);
 
