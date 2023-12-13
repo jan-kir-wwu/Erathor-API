@@ -9,7 +9,7 @@ public interface IExecutionController<I extends IExecution> {
 
     public I get(Integer id);
 
-    public Optional<I> getOptional(Integer id);
+    public Optional<I> read(Integer id);
 
     public void add(I model);
 
