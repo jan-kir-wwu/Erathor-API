@@ -6,7 +6,7 @@ import org.erathor.api.model.IModel;
 import java.util.List;
 import java.util.Optional;
 
-public interface IExecutionController extends IModelController {
+public interface IExecutionController {
 
     public Optional<IExecution> read(Integer id);
 
