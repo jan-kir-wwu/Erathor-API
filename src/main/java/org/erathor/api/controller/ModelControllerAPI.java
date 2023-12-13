@@ -9,7 +9,7 @@ public interface ModelControllerAPI<M extends ModelAPI> {
 
     public Optional<M> read(Integer id);
 
-    public M create(M model);
+    public void create(M model);
 
     public void update(M model);
 
