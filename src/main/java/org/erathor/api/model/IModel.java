@@ -1,6 +1,6 @@
 package org.erathor.api.model;
 
-public interface ModelAPI<M extends ModelAPI<M>> {
+public interface IModel<M extends IModel<M>> {
 
     public Integer getId();
 
