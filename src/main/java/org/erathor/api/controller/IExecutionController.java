@@ -1,26 +1,25 @@
 package org.erathor.api.controller;
 
 import org.erathor.api.model.IExecution;
-import org.erathor.api.model.IModel;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IExecutionController {
+public interface IExecutionController<I extends IExecution> {
 
-    public IExecution get(Integer id);
+    public I get(Integer id);
 
-    public void add(IExecution model);
+    public Optional<I> getOptional(Integer id);
 
-    public void remove(IExecution model);
+    public void add(I model);
 
-    public Optional<IExecution> read(Integer id);
+    public void remove(I model);
 
-    public void create(IExecution model);
+    public void create(I model);
 
-    public void update(IExecution model);
+    public void update(I model);
 
-    public void delete(IExecution model);
+    public void delete(I model);
 
-    public List<IExecution> readAll();
+    public List<I> readAll();
 }
