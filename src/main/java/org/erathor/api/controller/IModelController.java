@@ -5,16 +5,16 @@ import java.util.Optional;
 
 import org.erathor.api.model.IModel;
 
-public interface IModelController<M> {
+public interface IModelController {
 
-    public Optional<M> read(Integer id);
+    public Optional<?> read(Integer id);
 
-    public void create(M model);
+    public void create(IModel model);
 
-    public void update(M model);
+    public void update(IModel model);
 
-    public void delete(M model);
+    public void delete(IModel model);
 
-    public List<M> readAll();
+    public List<?> readAll();
 
 }
